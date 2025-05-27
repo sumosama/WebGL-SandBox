@@ -105,6 +105,7 @@
             const windowHeight = window.innerHeight;
             const visualWindowHeight = target.height;
             const keyboardHeight = windowHeight - visualWindowHeight;
+            console.log(windowHeight + " : " + visualWindowHeight + " : " + keyboardHeight);
             unityInstance.SendMessage("JSReceiver", "OnResizeViewPort", keyboardHeight);
           });
 
