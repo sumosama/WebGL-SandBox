@@ -103,7 +103,7 @@
           visualViewport.addEventListener('resize', (target) =>
           {
             const windowHeight = window.innerHeight;
-            const visualWindowHeight = target.height;
+            const visualWindowHeight = visualViewport.height;
             const keyboardHeight = windowHeight - visualWindowHeight;
             const output = windowHeight + " : " + visualWindowHeight + " : " + keyboardHeight;
             unityInstance.SendMessage("JSReceiver", "OnResizeViewPort", output);
