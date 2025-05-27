@@ -27,11 +27,11 @@
       
       const hideFullScreenButton = "";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/03ebefada28bf9013b1b0c47aad921de.loader.js";
+      const loaderUrl = buildUrl + "/71c468fbb886f756d2df42974864a93b.loader.js";
       const config = {
-        dataUrl: buildUrl + "/d20e6dea43dee3dbe97dc92ce317c9ce.data.unityweb",
+        dataUrl: buildUrl + "/724186dbd9284ad6ef377cd24b9dc398.data.unityweb",
         frameworkUrl: buildUrl + "/c86d99152e73d47c29a2f10ec67b0e5e.framework.js.unityweb",
-        codeUrl: buildUrl + "/c872ef92d2578a770729584ceb1a83c7.wasm.unityweb",
+        codeUrl: buildUrl + "/edfdaded8ce19d0f770fa245896338d4.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "ChatApp",
@@ -102,11 +102,8 @@
           
           visualViewport.addEventListener('resize', (target) =>
           {
-            const windowHeight = window.innerHeight;
-            const visualWindowHeight = visualViewport.height;
-            const keyboardHeight = windowHeight - visualWindowHeight;
-            const output = windowHeight + " : " + visualWindowHeight + " : " + keyboardHeight;
-            unityInstance.SendMessage("JSReceiver", "OnResizeViewPort", output);
+            const json = '{ "windowHeight" :' + window.innerHeight + ', "visualViewportHeight" : ' + visualViewport.height + ' }'
+            unityInstance.SendMessage("JSReceiver", "OnResizeViewport", json);
           });
 
         }).catch((message) => {
