@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">    
     <title>ChatApp</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="apple-touch-icon" href="TemplateData/favicon.ico">
@@ -89,17 +87,8 @@
               unityInstance.SetFullscreen(1);
             };
           }
-
-          const elem = document.documentElement;
-          if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-          } else if (elem.mozRequestFullScreen) { // Firefox
-            elem.mozRequestFullScreen();
-          } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Opera
-            elem.webkitRequestFullscreen();
-          } else if (elem.msRequestFullscreen) { // IE/Edge
-            elem.msRequestFullscreen();
-          }
+          
+          window.scroll(0, 0);
           
           document.addEventListener('visibilitychange', function ()
           {
