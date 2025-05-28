@@ -87,9 +87,18 @@
               unityInstance.SetFullscreen(1);
             };
           }
-          
-          unityInstance.SetFullscreen(1);
 
+          const elem = document.documentElement;
+          if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+          } else if (elem.mozRequestFullScreen) { // Firefox
+            elem.mozRequestFullScreen();
+          } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Opera
+            elem.webkitRequestFullscreen();
+          } else if (elem.msRequestFullscreen) { // IE/Edge
+            elem.msRequestFullscreen();
+          }
+          
           document.addEventListener('visibilitychange', function ()
           {
             if (document.visibilityState == "hidden")
