@@ -27,11 +27,11 @@
       
       const hideFullScreenButton = "";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/999f9cd000d1c08e3aaed73e4898982c.loader.js";
+      const loaderUrl = buildUrl + "/3af1a048c5dbc440c364ce90607ad1c1.loader.js";
       const config = {
-        dataUrl: buildUrl + "/a08bde8beddfad7cc7ce34a1210a4c0e.data.unityweb",
+        dataUrl: buildUrl + "/e554b7720e731fc20186aa4d84cf33ad.data.unityweb",
         frameworkUrl: buildUrl + "/397d588ee85ff9dd8b6540f5ed926350.framework.js.unityweb",
-        codeUrl: buildUrl + "/1ab614a0859da50c30ca71b75c37e9b4.wasm.unityweb",
+        codeUrl: buildUrl + "/589eeba0a272c53ce3f450dbcdd72733.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "ChatApp",
@@ -45,9 +45,7 @@
       const progressBarFull = document.querySelector("#unity-progress-bar-full");
       const fullscreenButton = document.querySelector("#unity-fullscreen-button");
       const spinner = document.querySelector('.spinner');
-
       
-
 
       const canFullscreen = (function() {
         for (const key of [
@@ -87,9 +85,7 @@
               unityInstance.SetFullscreen(1);
             };
           }
-          
-          window.scroll(0, 0);
-          
+
           document.addEventListener('visibilitychange', function ()
           {
             if (document.visibilityState == "hidden")
