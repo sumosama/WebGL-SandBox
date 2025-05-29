@@ -34,9 +34,9 @@
   <!--<link rel="apple-touch-icon" href=".png" />-->
   <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
 
-  <link rel="stylesheet" type="text/css" href="style.02f4a.css"/>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
 
-  <script src="./jsQR.084a8.js"></script>
+  <script src="./jsQR.js"></script>
   <script type="text/JavaScript">
   
   function startWebcam()
@@ -75,16 +75,16 @@
       {
           const video = document.getElementById("video");
           const canvas = document.getElementById("camera-canvas");
-        const ctx = canvas.getContext('2d');
-    canvas.height = video.videoHeight;
-    canvas.width = video.videoWidth;
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+          const ctx = canvas.getContext('2d');
+          canvas.height = video.videoHeight;
+          canvas.width = video.videoWidth;
+          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    let img = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    let code = jsQR(img.data, img.width, img.height, {inversionAttempts: "dontInvert"});
+          let img = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          let code = jsQR(img.data, img.width, img.height, {inversionAttempts: "dontInvert"});
 
           return [canvas.toDataURL(), video.videoWidth, video.videoHeight, code];
-  }
+      }
 
       return [null, 0, 0, null];
   }
@@ -102,17 +102,17 @@
 
 <!-- Polyfills bundle. -->
 
-<script src="src/polyfills.bundle.5adbf.js" charset="utf-8"> </script>
+<script src="src/polyfills.bundle.js" charset="utf-8"> </script>
 
 
 <!-- SystemJS support. -->
-<script src="src/system.bundle.543e6.js" charset="utf-8"> </script>
+<script src="src/system.bundle.js" charset="utf-8"> </script>
 
 <!-- Import map -->
-<script src="src/import-map.d0058.json" type="systemjs-importmap" charset="utf-8"> </script>
+<script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"> </script>
 
 <script>
-    System.import('./index.7f585.js').catch(function(err) { console.error(err); })
+    System.import('./index.js').catch(function(err) { console.error(err); })
 </script>
 
   <div id="wrapper" style="display:none">
