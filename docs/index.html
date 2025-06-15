@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Jackpot</title>
+    <title>Unity-WebGL</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="apple-touch-icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
@@ -15,7 +15,6 @@
     </div>
     <div id="loading-cover" style="display:none;">
       <div id="unity-loading-bar">
-        <div id="unity-logo"><img src="logo.png"></div>
         <div id="unity-progress-bar-empty" style="display: none;">
           <div id="unity-progress-bar-full"></div>
         </div>
@@ -23,92 +22,8 @@
       </div>
     </div>
     <div id="unity-fullscreen-button" style="display: none;"></div>
-    <script>
+    <script src="TemplateData/script.js">
       
-      const hideFullScreenButton = "";
-      const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/7dec4c56b9a76e098f0c62ac41fdb2ef.loader.js";
-      const config = {
-        dataUrl: buildUrl + "/b16a6e94393e35b2ad1615bda56cc3ad.data.unityweb",
-        frameworkUrl: buildUrl + "/429f78cef1e3d793e9be0fc3937c1fd8.framework.js.unityweb",
-        codeUrl: buildUrl + "/9a8f08c54f6e3672b557f037a0674f06.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "HOLIDAY WORKS",
-        productName: "Jackpot",
-        productVersion: "0.1.0",
-      };
-
-      const container = document.querySelector("#unity-container");
-      const canvas = document.querySelector("#unity-canvas");
-      const loadingCover = document.querySelector("#loading-cover");
-      const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
-      const progressBarFull = document.querySelector("#unity-progress-bar-full");
-      const fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      const spinner = document.querySelector('.spinner');
-      
-
-      const canFullscreen = (function() {
-        for (const key of [
-            'exitFullscreen',
-            'webkitExitFullscreen',
-            'webkitCancelFullScreen',
-            'mozCancelFullScreen',
-            'msExitFullscreen',
-          ]) {
-          if (key in document) {
-            return true;
-          }
-        }
-        return false;
-      }());
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
-        config.devicePixelRatio = 4;
-      }
-      loadingCover.style.display = "";
-
-      const script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          spinner.style.display = "none";
-          progressBarEmpty.style.display = "";
-          progressBarFull.style.width = `${100 * progress}%`;
-        }).then((unityInstance) => {
-          loadingCover.style.display = "none";
-          if (canFullscreen) {
-            if (!hideFullScreenButton) {
-              fullscreenButton.style.display = "";
-            }
-            fullscreenButton.onclick = () => {
-              unityInstance.SetFullscreen(1);
-            };
-          }
-
-          document.addEventListener('visibilitychange', function ()
-          {
-            if (document.visibilityState == "hidden")
-            {
-              unityInstance.SendMessage("JSReceiver", "OnHidden");
-            }
-            else
-            {
-              unityInstance.SendMessage("JSReceiver", "OnShown");
-            }
-          });
-          
-          visualViewport.addEventListener('resize', (target) =>
-          {
-            const json = '{ "windowHeight" :' + window.innerHeight + ', "visualViewportHeight" : ' + visualViewport.height + ' }'
-            unityInstance.SendMessage("JSReceiver", "OnResizeViewport", json);
-          });
-
-        }).catch((message) => {
-          alert(message);
-        });
-      };
-      document.body.appendChild(script);
     </script>
   </body>
 </html>
