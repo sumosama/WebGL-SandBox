@@ -1,10 +1,10 @@
 const hideFullScreenButton = "";
 const buildUrl = "Build";
-const loaderUrl = buildUrl + "/2562034c843d287878a7f75c7b52bc58.loader.js";
+const loaderUrl = buildUrl + "/db19ac4c2cc6334ff9293f05e95e624c.loader.js";
 const config = {
-    dataUrl: buildUrl + "/78dedecbef43cdfbbbc242aeef9f0a68.data.unityweb",
-    frameworkUrl: buildUrl + "/977226d20f4d68b93893a95dc4cfdab9.framework.js.unityweb",
-    codeUrl: buildUrl + "/99ac0f661c7671549d68aa9a3f829769.wasm.unityweb",
+    dataUrl: buildUrl + "/f4a8ef868c1c57b9d55768233fd6c966.data.unityweb",
+    frameworkUrl: buildUrl + "/f8d522b3bd467683c8a8efc7a0412dbc.framework.js.unityweb",
+    codeUrl: buildUrl + "/bbf4e7b5ce886e9541fbf1262d277f0e.wasm.unityweb",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "HOLIDAY WORKS",
     productName: "Unity-WebGL",
